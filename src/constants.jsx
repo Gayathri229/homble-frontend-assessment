@@ -1,0 +1,1 @@
+export const PROXY_URL = "https://cors-anywhere-5d5n.onrender.com/";

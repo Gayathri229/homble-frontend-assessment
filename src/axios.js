@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PROXY_URL } from "./constants";
 
 //GET - get all products - /products
 //GET - get product by ud - /products/:id
@@ -8,7 +9,7 @@ import axios from "axios";
 const envBaseUrl = "https://frontend-assessment-server.onrender.com/api";
 
 const instance = axios.create({
-  baseURL: envBaseUrl,
+  baseURL: PROXY_URL+envBaseUrl,
 });
 
 export const getRequest = async (url, params = {}, responseType = "json") => {
