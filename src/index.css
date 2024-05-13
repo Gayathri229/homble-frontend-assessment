@@ -1,10 +1,9 @@
 * {
   /* font-family: sans-serif; */
   font-family: "Roboto", Arial, sans-serif;
-
 }
 
-.header{
+.header {
   height: 60px;
   position: static;
   background-color: white;
@@ -296,4 +295,45 @@
   width: 100px;
   height: 20px;
   background-color: #dbd7d2;
+}
+
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container {
+margin: auto;
+padding: 30px;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 15px;
+}
+
+.table-container {
+  margin: auto;
+}
+
+.table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 15px 25px
+}
+
+th {
+  cursor: pointer;
+}
+
+tr {
+  border-bottom: 1px solid black;
 }

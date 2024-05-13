@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getRequest } from "../axios";
+import React, { useMemo } from "react";
 import ProductListShimmer from "./ProductListShimmer";
 import { Link } from "react-router-dom";
 import AddProduct from "./AddProduct";

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getRequest } from "../axios";
+import React, { useEffect, useMemo, useState } from "react";
 import Accordion from "./Accordion";
 import useFetchProductDescription from "../utils/hooks/useFetchProductDescription";
 

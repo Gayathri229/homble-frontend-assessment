@@ -48,7 +48,7 @@ This repo uses Create React App and includes essential setups:
 4. Use skeleton components while products are loading
 5. On Click of the product tile it should redirect to the specific product page.
 6. Create an “Add Product Button”:
-7. Opens a modal with 3 input fields and “Add” button: ----------------------------------------------------
+7. Opens a modal with 3 input fields and “Add” button:
 
    - Product Name
    - Product Description
@@ -63,7 +63,7 @@ This repo uses Create React App and includes essential setups:
 
 1. Fetch individual product data from the server using the endpoint: `/products/:id`.
 2. Display product information including product name, price, description, allergens, and usage instructions.
-3. Implement expandable/collapsible sections for the description, allergen information, and usage (all sections should be able to expand/collapse independently).---------------------------------------------------------------------------------------------------------
+3. Implement expandable/collapsible sections for the description, allergen information, and usage (all sections should be able to expand/collapse independently).
 4. Show a “Loading…” text when details are loading.
 
 ### Task 3: Code Improvement
@@ -74,7 +74,7 @@ This repo uses Create React App and includes essential setups:
 
 1. Develop a custom hook for fetching data from the server and sending requests.
 2. Ensure you handle errors—simply show a text message: “Something went wrong.”
-3. Memoize the computed values.
+3. Memoize the computed values.----------------------------------------------------------------------------------------
 
 ### Bar Raiser: Dashboard
 

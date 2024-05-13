@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../axios";
 
@@ -19,7 +19,13 @@ const useFetchProductDescription = () => {
       console.error("Error fetching product details", error);
     }
   };
-  return productDescription;
+
+  const memoizedProductDesc = useMemo(
+    () => productDescription,
+    [productDescription]
+  );
+  
+  return memoizedProductDesc;
 };
 
 export default useFetchProductDescription;
