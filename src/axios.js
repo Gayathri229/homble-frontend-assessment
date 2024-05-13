@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PROXY_URL } from "./constants";
+import { PROXY_URL } from "./utils/constants";
 
 //GET - get all products - /products
 //GET - get product by ud - /products/:id

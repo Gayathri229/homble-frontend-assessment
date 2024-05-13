@@ -4,41 +4,22 @@ import ProductListShimmer from "./ProductListShimmer";
 import { Link } from "react-router-dom";
 import AddProduct from "./AddProduct";
 import Header from "./Header";
+import useFetchProducts from "../utils/hooks/useFetchProducts";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const productsList = useFetchProducts();
 
-  const fetchProducts = async () => {
-    try {
-      const response = await getRequest("/products");
-      console.log(response);
-      const sortedProducts = response?.data?.sort(
-        (a, b) => a.selling_price - b.selling_price
-      );
-      setProducts(sortedProducts);
-    } catch (error) {
-      console.error("Error fetching response", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  return products.length === 0 ? (
+  return productsList.length === 0 ? (
     <ProductListShimmer />
   ) : (
     <>
       <Header />
-      <div>
-        {/* <AddProduct showModal={showAddProductModal} /> */}
-      </div>
+      <AddProduct />
       <div className="product-list-page">
-        
         <div className="product-list">
-          {products?.map((product) => (
-            <Link to={`/product-description/${product?.id}`}>
-              <div className="product" key={product?.id}>
+          {productsList?.map((product) => (
+            <Link to={`/product-description/${product?.id}`} key={product?.id}>
+              <div className="product">
                 <div>
                   <img
                     src={product?.productImage}

@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { toggleShowModal } from "../utils/appSlice";
 
 const Header = () => {
-  const [showAddProductModal, setShowAddProductModal] = useState(true);
+  const dispatch = useDispatch();
+
+  const handleShowModal = () => {
+    dispatch(toggleShowModal());
+  };
 
   return (
     <div className="header">
@@ -10,10 +16,7 @@ const Header = () => {
       </div>
 
       <div>
-        <button
-          className="add"
-          onClick={() => setShowAddProductModal(!showAddProductModal)}
-        >
+        <button className="add" onClick={handleShowModal}>
           ADD PRODUCT
         </button>
       </div>
