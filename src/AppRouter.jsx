@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./screens/Home";
 import ProductList from "./screens/ProductList";
 import ProductDescription from "./screens/ProductDescription";
 import Dashboard from "./screens/Dashboard";
