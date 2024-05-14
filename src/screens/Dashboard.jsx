@@ -17,10 +17,16 @@ const Dashboard = () => {
     const sortOrderChanger = sortOrder === "ASC" ? 1 : -1;
 
     const sortedData = [...tableData].sort((a, b) => {
-      const valueA =
-        typeof a[column] === "string" ? a[column].toLowerCase() : a[column];
-      const valueB =
-        typeof b[column] === "string" ? b[column].toLowerCase() : b[column];
+      let valueA = a[column];
+      let valueB = b[column];
+
+      if (column === "id") {
+        valueA = parseInt(valueA);
+        valueB = parseInt(valueB);
+      } else {
+        valueA = typeof valueA === "string" ? valueA.toLowerCase() : valueA;
+        valueB = typeof valueB === "string" ? valueB.toLowerCase() : valueB;
+      }
 
       if (valueA < valueB) return -1 * sortOrderChanger;
       if (valueA > valueB) return 1 * sortOrderChanger;
