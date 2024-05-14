@@ -9,7 +9,6 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<ProductList />} />
         <Route path="/product-description/:productId" element={<ProductDescription />} />
         <Route path="/dashboard" element={<Dashboard/>} />
