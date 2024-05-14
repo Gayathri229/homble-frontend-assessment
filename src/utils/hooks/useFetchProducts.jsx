@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getRequest } from "../../axios";
 
 const useFetchProducts = () => {
@@ -8,33 +8,22 @@ const useFetchProducts = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = useCallback( async () => {
-    try {
-      const response = await getRequest("/products");
-      console.log(response);
-      // const sortedProducts = response?.data?.sort(
-      //   (a, b) => a.selling_price - b.selling_price
-      // );
-      setProducts(response?.data);
-    } catch (error) {
-      console.error("Error fetching response", error);
-    }
-  },[]);
-
-  const memoizedProducts = useMemo(() => {
-    console.log("memoized function");
-    return products;
-  }, [products]);
-
-  const sortedProducts = useMemo(
-    () =>
-      memoizedProducts
-        ?.slice()
-        .sort((a, b) => a.selling_price - b.selling_price),
-    [memoizedProducts]
+  const fetchProducts = useMemo(
+    () => async () => {
+      try {
+        const response = await getRequest("/products");
+        const sortedProducts = response?.data
+          ?.slice()
+          .sort((a, b) => a.selling_price - b.selling_price);
+        setProducts(sortedProducts);
+      } catch (error) {
+        console.error("Error fetching response", error);
+      }
+    },
+    [products]
   );
 
-  return sortedProducts;
+  return products;
 };
 
 export default useFetchProducts;

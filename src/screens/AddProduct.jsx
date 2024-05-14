@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { postRequest } from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleShowModal } from "../utils/appSlice";
 import useAddProduct from "../utils/hooks/useAddProduct";
@@ -29,10 +28,6 @@ const AddProduct = () => {
 
   const handleAddAllergenInfo = (event) => {
     setAllergenInfo(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    handleAddProduct();
   };
 
   const handleCloseModal = () => {
@@ -79,7 +74,7 @@ const AddProduct = () => {
               </div>
 
               <div className="submit-product-container">
-                <button onClick={handleSubmit} className="submit-add-product">
+                <button onClick={handleAddProduct} className="submit-add-product">
                   ADD
                 </button>
               </div>

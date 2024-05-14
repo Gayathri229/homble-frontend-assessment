@@ -9,8 +9,11 @@ const appSlice = createSlice({
     toggleShowModal: (state) => {
       state.showModal = !state.showModal;
     },
+    cacheResults: (state, action) => {
+      return { ...state, ...action.payload };
+    },
   },
 });
 
 export default appSlice.reducer;
-export const {toggleShowModal} = appSlice.actions;
+export const { toggleShowModal, cacheResults } = appSlice.actions;

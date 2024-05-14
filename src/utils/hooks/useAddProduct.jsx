@@ -10,11 +10,10 @@ const useAddProduct = ({productName, prodDescription, allergenInfo, setProductNa
         productDescription: prodDescription,
         allergenInfo: allergenInfo,
       };
-      const response = await postRequest(url, data);
+      await postRequest(url, data);
       setProductName("");
       setProdDescription("");
       setAllergenInfo("");
-      console.log("product added successfully", response);
     } catch (error) {
       console.error("Error adding product", error);
     }

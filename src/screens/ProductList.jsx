@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import ProductListShimmer from "./ProductListShimmer";
 import { Link } from "react-router-dom";
 import AddProduct from "./AddProduct";

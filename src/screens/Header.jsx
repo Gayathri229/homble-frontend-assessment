@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleShowModal } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const Header = () => {
         <button className="add" onClick={handleShowModal}>
           ADD PRODUCT
         </button>
+        <Link to="/dashboard">
+          <button className="dashboard-button">DASHBOARD</button>
+        </Link>
       </div>
     </div>
   );

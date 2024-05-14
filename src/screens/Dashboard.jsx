@@ -16,7 +16,7 @@ const Dashboard = () => {
   const sortData = (column) => {
     const sortOrderChanger = sortOrder === "ASC" ? 1 : -1;
 
-    const sortedData = [...filteredTableData].sort((a, b) => {
+    const sortedData = [...tableData].sort((a, b) => {
       const valueA =
         typeof a[column] === "string" ? a[column].toLowerCase() : a[column];
       const valueB =
@@ -27,7 +27,6 @@ const Dashboard = () => {
       return 0;
     });
 
-    // setTableData(sortedData);
     setFilteredTableData(sortedData);
     setSortOrder(sortOrder === "ASC" ? "DSC" : "ASC");
   };
@@ -45,16 +44,6 @@ const Dashboard = () => {
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
-    console.log("query", searchQuery);
-    // setFilteredTableData(
-    //   tableData.filter((data) => {
-    //     return (
-    //       data?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    //       data?.id.includes(searchQuery.toString())
-    //     );
-    //   })
-    // );
-    // console.log("filtered", filteredTableData);
   };
 
   const handleCheckRow = (id) => {
@@ -63,7 +52,6 @@ const Dashboard = () => {
     });
     setFilteredTableData(filteredRows);
     setTableData(filteredRows);
-    console.log("check", filteredRows);
   };
 
   return tableData.length === 0 ? (
@@ -84,7 +72,7 @@ const Dashboard = () => {
               <th onClick={() => sortData("id")}>ID</th>
               <th onClick={() => sortData("name")}>Name</th>
               <th onClick={() => sortData("selling_price")}>Price</th>
-              <th>Check Row</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

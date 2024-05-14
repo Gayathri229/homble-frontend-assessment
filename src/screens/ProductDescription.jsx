@@ -1,9 +1,17 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import Accordion from "./Accordion";
 import useFetchProductDescription from "../utils/hooks/useFetchProductDescription";
+import { useParams } from "react-router-dom";
+import {
+  ALLERGEN_INFO_TITLE,
+  COOKING_INSTRUCTION_TITLE,
+  PROD_DESC_TITLE,
+} from "../utils/constants";
 
 const ProductDescription = () => {
-  const productDescriptionResponse = useFetchProductDescription();
+  const { productId } = useParams();
+
+  const productDescriptionResponse = useFetchProductDescription({ productId });
 
   return productDescriptionResponse?.length === 0 ? (
     <div className="loading-text">LOADING...</div>
@@ -29,19 +37,19 @@ const ProductDescription = () => {
 
           <div>
             <Accordion
-              title={"Product Description"}
+              title={PROD_DESC_TITLE}
               content={productDescriptionResponse?.description}
             />
           </div>
           <div>
             <Accordion
-              title={"Allergen Info"}
+              title={ALLERGEN_INFO_TITLE}
               content={productDescriptionResponse?.allergen_info}
             />
           </div>
           <div>
             <Accordion
-              title={"Cooking Instruction"}
+              title={COOKING_INSTRUCTION_TITLE}
               content={productDescriptionResponse?.cooking_instruction}
             />
           </div>
